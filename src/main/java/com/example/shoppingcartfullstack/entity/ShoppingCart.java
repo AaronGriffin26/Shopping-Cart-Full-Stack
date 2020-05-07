@@ -1,6 +1,61 @@
 package com.example.shoppingcartfullstack.entity;
 
-import java.text.NumberFormat;
+import javax.persistence.*;
+
+@Entity
+@Table(name="Shopping_Cart")
+public class ShoppingCart{
+    @Id private int shoppingCartId;
+    @Column(name="User_Name") private String userName;
+    @Column(name="Date") private String date;
+
+    public ShoppingCart(){
+        shoppingCartId = 0;
+        userName = "";
+        date = "";
+    }
+
+    public ShoppingCart(int shoppingCartId, String userName, String date){
+        this.shoppingCartId = shoppingCartId;
+        this.userName = userName;
+        this.date = date;
+    }
+
+    public int getShoppingCartId() {
+        return shoppingCartId;
+    }
+
+    public void setShoppingCartId(int shoppingCartId) {
+        this.shoppingCartId = shoppingCartId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "shoppingCartId=" + shoppingCartId +
+                ", userName='" + userName + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
+}
+
+/*import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -44,3 +99,4 @@ public class ShoppingCart {
         return "Your Shopping Cart has "+ count + " items. \n" + list.toString();
     }
 }
+*/
