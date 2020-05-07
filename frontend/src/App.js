@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
 
 import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
@@ -11,10 +11,15 @@ import ConfirmationPage from './components/ConfirmationPage';
 function App() {
     return (
         <body>
-        <header>
-            Generic Shop Site
-        </header>
         <BrowserRouter>
+            <header>
+                <div class="top-navigation">
+                    Generic Shop Site<br/>
+                    <Link to="/">Home</Link>
+                    <Link to="/browse">Browse</Link>
+                    <Link id="login" to="/login">Log In</Link>
+                </div>
+            </header>
             <div id="page-wrapper">
                 <Route path="/" component={App}>
                     <Route exact path="/" component={WelcomePage}/>
@@ -24,10 +29,10 @@ function App() {
                     <Route path="/confirm" component={ConfirmationPage}/>
                 </Route>
             </div>
+            <footer>
+                Website by Aaron Griffin and Carmen Smith. Backend by Gaurav Nain. Database by Carmen Smith.
+            </footer>
         </BrowserRouter>
-        <footer>
-            Website by Aaron Griffin. Backend by Gaurav Nain. Database and assistance by Carmen Smith.
-        </footer>
         </body>
     );
 }
