@@ -27,8 +27,6 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
             )
     }
 
-    
-
     deleteItemClicked(Item_ID, Quantity, Item_Price) {
         console.log('Delete Item Clicked')
         ShoppingCartDataService.deleteItem_ID(Item_ID)    // this will update depending on http method call
@@ -41,17 +39,17 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
             )
     }
 
-
-     addItemClicked(){
+    addItemClicked(){
          console.log('Add Item Clicked')
          this.props.history.push('/list/-1')
      }
-/*
-    updateItemClicked(Item_ID, Quantity) {
-        console.log('Update Item Clicked')
-        this.props.history.push(`/list/${Item_ID}/${Quantity}')
-    }*/
-  
+     updateItemClicked(Item_ID, Quantity){
+         console.log('Update Item Clicked')
+         this.props.history.push('/list/${Item_ID}/${Quantity}')
+    }
+
+
+
 
     render() {
         return(
