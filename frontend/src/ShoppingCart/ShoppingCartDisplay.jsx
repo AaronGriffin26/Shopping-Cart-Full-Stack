@@ -19,20 +19,20 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     }
 
     refreshShoppingCart() {
-        ShoppingCartDisplay.retrieveAllItems()    // this will update depending on http method call
+        ShoppingCartDataService.getShoppingCart(id)    // this will update depending on http method call
             .then(
                 response => {
-                    this.setState({list: response.data})
+                    this.setState({list: response.data})   //list is name of shopping cart arraylist
                 }
             )
     }
 
-    deleteItemClicked(Item_ID, Quantity, Item_Price) {
+    deleteItemClicked(itemId, itemQuantity, itemPrice) {
         console.log('Delete Item Clicked')
-        ShoppingCartDataService.deleteItem_ID(Item_ID)    // this will update depending on http method call
+        ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
             .then(
                 response => {
-                    this.setState({message: `Deleted Item ID: ${Item_ID} `})
+                    this.setState({message: `Deleted Item ID: ${itemId} `})
                     alert(this.state.message)
                     this.refreshShoppingCart();
                 }
@@ -43,9 +43,9 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
          console.log('Add Item Clicked')
          this.props.history.push('/list/-1')
      }
-     updateItemClicked(Item_ID, Quantity){
+     updateItemClicked(itemId, itemQuantity){
          console.log('Update Item Clicked')
-         this.props.history.push('/list/${Item_ID}/${Quantity}')
+         this.props.history.push('/list/${itemId}/${itemQuantity}')
     }
 
 
@@ -72,13 +72,13 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                         {
                             this.state.list.map (
                                 list =>
-                                    <tr style={{textAlign: "center"}} key={list.Shopping_Cart_ID}>
+                                    <tr style={{textAlign: "center"}} key={list.list}>
                                     
-                                        <td>{list.Item_ID}</td>
-                                        <td>{list.Quantity}</td>
-                                        <td>{list.Item_Price}</td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.Item_ID, list.Quantity, list.Item_Price)}>Delete</button></td>
-                                        <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.Item_ID, list.Quantity)}>Update</button></td>
+                                        <td>{list.itemId}</td>
+                                        <td>{list.itemQuantity}</td>
+                                        <td>{list.itemPrice}</td>
+                                        <td><button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button></td>
+                                        <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId, list.itemQuantity)}>Update</button></td>
                                     </tr>
                             )
                         }

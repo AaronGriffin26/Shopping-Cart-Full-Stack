@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import ShoppingCartDataService from '../Service/ShoppingCartDataService'
 
-class AddItem extends Component {
+class AddCart_Item extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            Customer_ID: this.props.match.params.Customer_ID,
-            Item_Id: '',
-            Quantity: 0,
-            Item_Price: 0,
+           // shoppingCartId: this.props.match.params.shoppingCartId,
+            itemId: '',
+            itemQuantity: '',
+            itemPrice: '',
 
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,41 +22,41 @@ class AddItem extends Component {
     }
 
     handleSubmit() {
-        let Cart_Items = {
-            Customer_id: this.state.Customer_id,
-            Item_Id: this.state.Item_Id,
-            Quantity: this.state.Quantity,
-            Item_Price: this.state.Item_Price,
+        let list = {
+            shoppingCartId: this.state.shoppingCartId,
+            itemId: this.state.itemId,
+            itemQuantity: this.state.itemQuantity,
+            itemPrice: this.state.itemPrice,
 
         }
 
-        ShoppingCartDataService.createCartItems(Cart_Items)()
-            .then(this.props.history.push(`/Cart_Items`))
+        ShoppingCartDataService.CreateCartItems(list)
+            .then(this.props.history.push(`/Cart_Items`))    //create cart items- method in ShoppingDataService
     }
 
     render() {
         return(
             <div>
-                <div className="jumbotron" style={{backgroundColor: "red"}}>
+                <div className="jumbotron" style={{backgroundColor: "purple"}}>
                     <h3 style={{textAlign: "center"}}>Add Cart Item</h3>
                 </div>
                 <div className="container">
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label>Customer_ID:</label>
-                            <input className="form-control" type="text" value={this.state.Customer_ID} disabled/>
+                            <label>Shopping Cart Id:</label>
+                            <input className="form-control" type="text" value={this.state.shoppingCartId} disabled/>
                         </div>
                         <div>
                             <lable>Item ID:</lable>
-                            <input className="form-control" type="text" name="Item_ID" onChange={this.handleChange}/>
+                            <input className="form-control" type="text" name="itemId" onChange={this.handleChange} disabled/>
                         </div>
                         <div>
                             <lable>Quantity:</lable>
-                            <input className="form-control" type="text" name="Quantity" onChange={this.handleChange}/>
+                            <input className="form-control" type="text" name="itemQuantity" onChange={this.handleChange}/>
                         </div>
                         <div>
                             <lable>Item Price:</lable>
-                            <input className="form-control" type="text" name="Item_Price" onChange={this.handleChange}/>
+                            <input className="form-control" type="text" name="itemPrice" onChange={this.handleChange}/>
                         </div> <br/><br/>
                         <button className="btn btn-success" type="submit">Submit</button><br/><br/>
                     </form>
@@ -66,4 +66,4 @@ class AddItem extends Component {
     }
 }
 
-export default AddItem
+export default AddCart_Item
