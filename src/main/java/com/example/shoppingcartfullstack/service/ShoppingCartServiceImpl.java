@@ -26,8 +26,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     }
     @Override
     @Transactional
-    public void save(ShoppingCart thePart) {
-        shoppingCartDAO.save(thePart);
+    public void save(ShoppingCart theShoppingCart) {
+        shoppingCartDAO.save(theShoppingCart);
     }
     @Override
     @Transactional
