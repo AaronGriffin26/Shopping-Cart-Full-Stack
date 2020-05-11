@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import ShoppingCartDataService from "../Service/ShoppingCartDataService"
 
-  export default class ShoppingCartDisplay extends Component {
+  export default class ListShoppingCart extends Component {
     constructor(props) {
-        super(props)
-        this.state = {
+        super(props)             //To display items, we need to make them available to the component.
+        this.state = {          // we add items to the state of the component and initialize in the constructor
             list: [],
             message: null,
         }
@@ -19,9 +19,10 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     }
 
     refreshShoppingCart() {
-        ShoppingCartDataService.getShoppingCart(id)    // this will update depending on http method call
+        ShoppingCartDataService.retrieveAllItems(itemId)    // this will update depending on http method call
             .then(
-                response => {
+                response => {          //when the response comes back with data, we update the state. and will need to update render method once data is in the state and you need to display it.
+                    console.log(response);
                     this.setState({list: response.data})   //list is name of shopping cart arraylist
                 }
             )
@@ -54,25 +55,26 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     render() {
         return(
             <div className="container">
-                <h1 style={{textAlign:"center"}}>Shopping Cart</h1><br></br>
+                <h1 style={{textAlign:"center"}}>Shopping Cart</h1>
                 <div className="jumbotron"  style={{backgroundColor: "gray", color: "white"}}>
                     <table className="table">
                         <thead>
                         <tr style={{textAlign: "center" , color: "black"}}> 
         
-                            <th>Shopping_Cart_ID</th>
-                            <th>Item_ID</th>
+                            <th>ShoppingCart ID</th>
+                            <th>Item ID</th>
                             <th>Quantity</th>
-                            <th>Item_Price</th>
+                            <th>Item Price</th>
                             <th>Delete</th>
                             <th>Update</th>
+
                         </tr>
                         </thead>
                         <tbody>
                         {
-                            this.state.list.map (
+                            this.state.list.map (       ////allow you to loop around a list of items and define how each item should be displayed
                                 list =>
-                                    <tr style={{textAlign: "center"}} key={list.list}>
+                                    <tr style={{textAlign: "center"}} key={list.shoppingCartId}>   //Our Primary key- to identify a row
                                     
                                         <td>{list.itemId}</td>
                                         <td>{list.itemQuantity}</td>

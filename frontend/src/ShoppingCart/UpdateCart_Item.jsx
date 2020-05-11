@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react';
 import {Formik, Form, Field} from 'formik'
 import ShoppingCartDataService from "../Service/ShoppingCartDataService";
 
@@ -6,8 +6,8 @@ class UpdateCart_Item extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            shoppingCartId:'', //this.props.match.params.shoppingCartId,
-            itemId: '',//this.props.match.params.itemId,
+            shoppingCartId:this.props.match.params.shoppingCartId,
+            itemId: this.props.match.params.itemId,
             itemQuantity: '',
             itePrice: '',
 

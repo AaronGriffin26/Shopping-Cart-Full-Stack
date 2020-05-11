@@ -5,7 +5,7 @@ class AddCart_Item extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           // shoppingCartId: this.props.match.params.shoppingCartId,
+           shoppingCartId: this.props.match.params.shoppingCartId,
             itemId: '',
             itemQuantity: '',
             itemPrice: '',
@@ -30,7 +30,7 @@ class AddCart_Item extends Component {
 
         }
 
-        ShoppingCartDataService.CreateCartItems(list)
+        ShoppingCartDataService.RetrieveCartItems(list)
             .then(this.props.history.push(`/Cart_Items`))    //create cart items- method in ShoppingDataService
     }
 
