@@ -17,7 +17,7 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     @Override
     public List<ShoppingCart> findAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<ShoppingCart> theQuery = currentSession.createQuery("from Shopping_Cart", ShoppingCart.class);
+        Query<ShoppingCart> theQuery = currentSession.createQuery("from ShoppingCart", ShoppingCart.class);
         List<ShoppingCart> shoppingCarts = theQuery.getResultList();
         return shoppingCarts;
     }
@@ -35,7 +35,7 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     @Override
     public void deleteById(int userId) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query theQuery = currentSession.createQuery("delete from Shopping_Cart where id=:User_Name");
+        Query theQuery = currentSession.createQuery("delete from ShoppingCart where id=:User_Name");
         theQuery.setParameter("User_Name", userId);
         theQuery.executeUpdate();
     }

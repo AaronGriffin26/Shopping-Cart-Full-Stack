@@ -41,7 +41,6 @@ public class CustomerController{
     // localhost:8080/api/customerClass/post in Postman
     @PostMapping("/customerClass/post") // creates a new customer
     public Customer postShoppingCart(@RequestBody Customer theCustomer){
-        theCustomer.setUserName("");
         customerService.save(theCustomer);
         return theCustomer;
     }
