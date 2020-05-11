@@ -7,7 +7,7 @@ class UpdateCart_Item extends React.Component {
         super(props)
         this.state = {
             shoppingCartId:this.props.match.params.shoppingCartId,
-            itemId: this.props.match.params.itemId,
+            //itemId: this.props.match.params.itemId,
             itemQuantity: '',
             itePrice: '',
 

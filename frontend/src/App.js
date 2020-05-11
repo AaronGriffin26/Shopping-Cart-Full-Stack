@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+//import UpdateCart_Item from "./ShoppingCart/UpdateCart_Item";
+//import AddCart_Item from "./ShoppingCart/AddCart_Item";
+
+import RouterComponent from "./General/RouterComponent";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return(
+
+       //<UpdateCart_Item/>
+        //<AddCart_Item/>
+         <div className="container">
+         <RouterComponent/>
+         </div>
+    );
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ShoppingCartDataService from '../Service/ShoppingCartDataService'
+import ShoppingCartDataService from "../Service/ShoppingCartDataService";
 
 class AddCart_Item extends Component {
     constructor(props) {
@@ -30,14 +30,14 @@ class AddCart_Item extends Component {
 
         }
 
-        ShoppingCartDataService.RetrieveCartItems(list)
-            .then(this.props.history.push(`/Cart_Items`))    //create cart items- method in ShoppingDataService
+        ShoppingCartDataService.retrieveAllCartItems()
+            .then(this.props.history.push(`/cartItems`))    //create cart items- method in ShoppingDataService
     }
 
     render() {
         return(
             <div>
-                <div className="jumbotron" style={{backgroundColor: "purple"}}>
+                <div>
                     <h3 style={{textAlign: "center"}}>Add Cart Item</h3>
                 </div>
                 <div className="container">

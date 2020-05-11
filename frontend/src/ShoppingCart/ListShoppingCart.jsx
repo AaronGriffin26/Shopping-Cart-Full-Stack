@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ShoppingCartDataService from "../Service/ShoppingCartDataService"
 
+
   export default class ListShoppingCart extends Component {
     constructor(props) {
         super(props)             //To display items, we need to make them available to the component.
@@ -19,7 +20,7 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     }
 
     refreshShoppingCart() {
-        ShoppingCartDataService.retrieveAllItems(itemId)    // this will update depending on http method call
+        ShoppingCartDataService.retrieveAllCartItems()    // this will update depending on http method call
             .then(
                 response => {          //when the response comes back with data, we update the state. and will need to update render method once data is in the state and you need to display it.
                     console.log(response);
@@ -29,24 +30,24 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     }
 
     deleteItemClicked(itemId, itemQuantity, itemPrice) {
-        console.log('Delete Item Clicked')
-        ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
-            .then(
-                response => {
-                    this.setState({message: `Deleted Item ID: ${itemId} `})
-                    alert(this.state.message)
-                    this.refreshShoppingCart();
-                }
-            )
+        // console.log('Delete Item Clicked')
+        // ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
+        //     .then(
+        //         response => {
+        //             this.setState({message: `Deleted Item ID: ${itemId} `})
+        //             alert(this.state.message)
+        //             this.refreshShoppingCart();
+        //         }
+        //     )
     }
 
     addItemClicked(){
-         console.log('Add Item Clicked')
-         this.props.history.push('/list/-1')
+         // console.log('Add Item Clicked')
+         // this.props.history.push('/list/-1')
      }
-     updateItemClicked(itemId, itemQuantity){
-         console.log('Update Item Clicked')
-         this.props.history.push('/list/${itemId}/${itemQuantity}')
+     updateItemClicked(itemId){
+          console.log('Update Item Clicked')
+         this.props.history.push('/cartUpdate/${itemId}')
     }
 
 
@@ -80,7 +81,7 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button></td>
-                                        <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId, list.itemQuantity)}>Update</button></td>
+                                        <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId)}>Update</button></td>
                                     </tr>
                             )
                         }

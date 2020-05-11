@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import ListShoppingCart from "../ShoppingCart/ListShoppingCart";
-import Route from "react-router-dom/es/Route";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import AddCart_Item from "../ShoppingCart/AddCart_Item";
-import Router from "react-router-dom/es/Router";
-import Switch from "react-router-dom/es/Switch";
+import UpdateCart_Item from "../ShoppingCart/UpdateCart_Item";
+
 
 
 
@@ -16,7 +17,8 @@ export default class RouterComponent extends Component {
                     <Switch>
                     <Route path = "/" exact component = {ListShoppingCart} />
                     <Route path = "/cartItems" exact component = {ListShoppingCart} />
-                    <Route path = "/ cartItems/:shoppingCartId" component = {AddCart_Item} />
+                    <Route path = "/cartItems/:shoppingCartId" component = {AddCart_Item} />
+                    <Route path = "/cartUpdate/:shoppingCartId" component = {UpdateCart_Item} />
                     </Switch>
                     </>
             </Router>
