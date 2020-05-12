@@ -65,6 +65,8 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                             <th>Item Id:</th>
                             <th>Quantity:</th>
                             <th>Item Price:</th>
+                            <th>Delete</th>
+                            <th>Update</th>
 
 
                         </tr>
