@@ -3,7 +3,8 @@ package com.example.shoppingcartfullstack.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Shopping_Cart")
+//@Table(name="Shopping_Cart")
+@Table(name="shoppingcart")
 public class ShoppingCart{
     @Id private int shoppingCartId;
     @Column(name="User_Name") private String userName;
