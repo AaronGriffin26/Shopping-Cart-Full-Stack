@@ -19,7 +19,7 @@ public class CartItemsDAOImpl implements CartItemsDAO{
     @Override
     public List<CartItems> findAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<CartItems> theQuery = currentSession.createQuery("from Cart_Items", CartItems.class);
+        Query<CartItems> theQuery = currentSession.createQuery("from CartItems", CartItems.class);
         List<CartItems> cartItems = theQuery.getResultList();
         return cartItems;
     }
@@ -37,7 +37,7 @@ public class CartItemsDAOImpl implements CartItemsDAO{
     @Override
     public void deleteById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query theQuery = currentSession.createQuery("delete from Cart_Items where id=:Item_ID");
+        Query theQuery = currentSession.createQuery("delete from CartItems where id=:Item_ID");
         theQuery.setParameter("Item_ID", id);
         theQuery.executeUpdate();
     }

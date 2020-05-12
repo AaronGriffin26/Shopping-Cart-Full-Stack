@@ -29,21 +29,21 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
             )
     }
 
-    deleteItemClicked(itemId, itemQuantity, itemPrice) {
-        // console.log('Delete Item Clicked')
-        // ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
-        //     .then(
-        //         response => {
-        //             this.setState({message: `Deleted Item ID: ${itemId} `})
-        //             alert(this.state.message)
-        //             this.refreshShoppingCart();
-        //         }
-        //     )
+    deleteItemClicked(itemId) {
+        console.log('Delete Item Clicked')
+        ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
+            .then(
+                response => {
+                    this.setState({message: `Deleted Item ID: ${itemId} `})
+                    alert(this.state.message)
+                    this.refreshShoppingCart();
+                }
+            )
     }
 
     addItemClicked(){
-         // console.log('Add Item Clicked')
-         // this.props.history.push('/list/-1')
+          console.log('Add Item Clicked')
+          this.props.history.push('/list/-1')
      }
      updateItemClicked(itemId){
           console.log('Update Item Clicked')
@@ -56,33 +56,34 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
     render() {
         return(
             <div className="container">
-                <h1 style={{textAlign:"center"}}>Shopping Cart</h1>
+                <h2 style={{textAlign:"center"}}>Cart Items</h2>
                 <div className="jumbotron"  style={{backgroundColor: "gray", color: "white"}}>
                     <table className="table">
                         <thead>
-                        <tr style={{textAlign: "center" , color: "black"}}> 
-        
-                            <th>ShoppingCart ID</th>
-                            <th>Item ID</th>
-                            <th>Quantity</th>
-                            <th>Item Price</th>
-                            <th>Delete</th>
-                            <th>Update</th>
+                        <tr style={{textAlign: "center" , color: "pink"}}>
+                            <th>Shopping Cart Id:</th>
+                            <th>Item Id:</th>
+                            <th>Quantity:</th>
+                            <th>Item Price:</th>
+
 
                         </tr>
                         </thead>
                         <tbody>
                         {
-                            this.state.list.map (       ////allow you to loop around a list of items and define how each item should be displayed
+                            this.state.list.map (    //allow you to loop through a list of items and define how each item should be displayed
                                 list =>
-                                    <tr style={{textAlign: "center"}} key={list.shoppingCartId}>   //Our Primary key- to identify a row
-                                    
+                                     <tr style={{textAlign: "center"}} key={list.shoppingCartId}>
+
                                         <td>{list.itemId}</td>
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button></td>
-                                        <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId)}>Update</button></td>
-                                    </tr>
+
+                                         <td>
+                                             <button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button>
+                                             <button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId)}>Update</button>
+                                         </td>
+                                     </tr>
                             )
                         }
                         </tbody>
@@ -90,11 +91,13 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                     <div className="row">
                         <br/>
                         <button className="btn btn-success" onClick={this.addItemClicked}>Add Item</button>
+
                     </div>
                 </div>
             </div>
         )
     }
-}
+  }
+
 
             

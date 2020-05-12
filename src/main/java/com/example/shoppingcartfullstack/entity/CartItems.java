@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="Cart_Items")
 public class CartItems{
-    @Id private int itemID;
+    @Id @Column(name="Item_ID") private int itemID;
     @Column(name="Shopping_Cart_ID") private int shoppingCartId;
     @Column(name="Quantity") private int itemQuantity;
     @Column(name="Item_Price") private double itemPrice;
