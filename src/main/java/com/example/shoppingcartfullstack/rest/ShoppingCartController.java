@@ -39,7 +39,7 @@ public class ShoppingCartController{
         return theShoppingCart;
     }
 
-    // localhost:8080/api/shoppingCart/post in Postman
+    //   in Postman
     @PostMapping("/shoppingCart/post") // creates a new shopping cart
     public ShoppingCart postShoppingCart(@RequestBody ShoppingCart theShoppingCart){
         theShoppingCart.setShoppingCartId(0);
