@@ -73,7 +73,7 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                         </thead>
                         <tbody>
                         {
-                            this.state.list.map (    //allow you to loopthrough a list of items and define how each item should be displayed
+                            this.state.list.map (    //allow you to loop through a list of items and define how each item should be displayed
                                 list =>
                                      <tr style={{textAlign: "center"}} key={list.shoppingCartId}>
 
