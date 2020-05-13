@@ -8,15 +8,31 @@ import RouterComponent from "./General/RouterComponent";
 import ListShoppingCart from "./ShoppingCart/ListShoppingCart";
 
 function App() {
-    return(
-
-       //<UpdateCart_Item/>
-        //<AddCart_Item/>
-         <div className="container">
-         <RouterComponent/>
-         </div>
-
-    );
+    return (
+        < div
+    className = "App" >
+        < header
+    className = "App-header" >
+        < img
+    src = {logo}
+    className = "App-logo"
+    alt = "logo" / >
+        < p >
+        Edit < code > src / App.js < /code> and save to reload.
+        < /p>
+        < a
+    className = "App-link"
+    href = "https://reactjs.org"
+    target = "_blank"
+    rel = "noopener noreferrer"
+        >
+        Learn
+    React
+    < /a>
+    < /header>
+    < /div>
+)
+    ;
 }
 
 export default App;
