@@ -1,10 +1,10 @@
-package com.example.shoppingcartfullstack;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ShoppingCartFullStackApplicationTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {
