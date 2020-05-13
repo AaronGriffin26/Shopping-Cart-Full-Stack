@@ -9,12 +9,10 @@ import RouterComponent from "./General/RouterComponent";
 
 function App() {
     return (
-       <div className="container">
-           <RouterComponent/>
-
-       </div>
-)
-    ;
+        < div className="container">
+            < RouterComponent/>
+        </div>
+    );
 }
 
 export default App;
