@@ -61,7 +61,6 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                     <table className="table">
                         <thead>
                         <tr style={{textAlign: "center" , color: "pink"}}>
-                            <th>Shopping Cart Id:</th>
                             <th>Item Id:</th>
                             <th>Quantity:</th>
                             <th>Item Price:</th>
@@ -81,10 +80,8 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
 
-                                         <td>
-                                             <button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button>
-                                             <button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId)}>Update</button>
-                                         </td>
+                                         <td><button className="btn btn-warning" onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete</button></td>
+                                         <td><button className="btn btn-success" onClick={() => this.updateItemClicked(list.itemId)}>Update</button></td>
                                      </tr>
                             )
                         }

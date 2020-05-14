@@ -23,12 +23,11 @@ export default class Login extends Component {
         }
 
         ShoppingCartDataService.createUser(theCustomer)     //pending rest http links reason for underline error... will change once completed
-            .then(() => this.props.history.push('/theCustomer'))
+            .then(() => this.props.history.push('/theCustomer'));
     }
-}
 
     render() {
-        let {userName, password,} = this.state
+        let {userName, password} = this.state;
         return (
             <div>
                 <div>
@@ -59,7 +58,9 @@ export default class Login extends Component {
                             <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                             </filedset>
                             </filedset>
-                            <button variant="btn btn-primary btn-block" onClick={()=> history.push('/cartItems')}>Submit</button>
+                            <button variant="btn btn-primary btn-block">Submit</button>
+                            {/*history seems to not be accepted here*/}
+                            {/*<button variant="btn btn-primary btn-block" onClick={()=> history.push('/cartItems')}>Submit</button>*/}
 
                             </Form>
                             )
