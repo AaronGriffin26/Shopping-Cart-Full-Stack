@@ -21,5 +21,6 @@ class ShoppingCartDataService{
         return axios.post(`http://localhost:8080/customerClass/post`,theCustomer)
 
     }
+
 }
 export default new ShoppingCartDataService();
