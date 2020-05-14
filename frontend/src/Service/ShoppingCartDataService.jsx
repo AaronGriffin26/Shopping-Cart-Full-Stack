@@ -21,6 +21,11 @@ class ShoppingCartDataService {
         return axios.post(`http://localhost:8080/api/customerClass/post`, theCustomer)
 
     }
+    
+    purchaseShoppingCart() {
+        // TODO: Implement purchasing displayed cart
+        return axios.get('http://localhost:8080/api/cart/listCarts');
+    }
 }
 
 export default new ShoppingCartDataService();
