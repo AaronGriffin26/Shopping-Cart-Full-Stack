@@ -9,17 +9,17 @@ import NavigationComponent from "./Login/NavigationComponent";
 function App() {
     return (
         <div className="container">
-            <header>
-                <div className="top-navigation">
-                    AGC Grocery<br/>
-                    <NavigationComponent/>
-                </div>
-            </header>
             <div id="page-wrapper">
+                <header>
+                    <div className="top-navigation">
+                        AGC Grocery<br/>
+                        <NavigationComponent/>
+                    </div>
+                </header>
                 <RouterComponent/>
+                {/*<LoginComponent/>  will map both login and sign-up through routerComponent tomorrow right now they are separate components*/}
+                {/*<SignUpComponent/>*/}
             </div>
-            {/*<LoginComponent/>  will map both login and sign-up through routerComponent tomorrow right now they are separate components*/}
-            {/*<SignUpComponent/>*/}
             <footer>
                 Website by Aaron Griffin and Carmen Smith. Backend by Gaurav Nain. Database by Carmen Smith.
             </footer>
