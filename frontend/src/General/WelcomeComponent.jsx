@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 
 class WelcomeComponent extends Component {
     constructor(props) {
         super(props)
-        this.state={
+        this.state = {
             name: this.props.name
         }
     }
+
     render() {
-        return(
+        return (
             <div className="container">
                 <br></br><br></br>
                 <div className="jumbotron" style={{textAlign:"center", backgroundColor:"black"}}>

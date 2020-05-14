@@ -25,6 +25,7 @@ export default class Login extends Component {
         ShoppingCartDataService.createUser(theCustomer)     //pending rest http links reason for underline error... will change once completed
             .then(() => this.props.history.push('/theCustomer'))
     }
+}
 
     render() {
         let {userName, password,} = this.state

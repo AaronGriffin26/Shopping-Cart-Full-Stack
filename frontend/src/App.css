@@ -1,38 +1,73 @@
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
+#page-wrapper {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    padding-bottom: 3rem;
 }
 
-.App-link {
-    color: #61dafb;
+footer {
+    position: relative;
+    bottom: 0;
+    height: 3rem;
+    margin-top: -3rem;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+h3 {
+    text-align: left;
+    font-size: 20pt;
+    background-color: #dfdfdf;
+}
+
+form input {
+    font-size: 14pt;
+}
+
+button {
+    font-size: 18pt;
+    background-color: #bfbfbf;
+    outline-color: #606060;
+}
+
+button:hover {
+    font-size: 18pt;
+    background-color: #80bfff;
+    outline-color: #406080;
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    color: #008080;
+}
+
+.top-navigation {
+    margin: 0;
+    font-size: 18pt;
+    background-color: #808080aa;
+    outline-color: #404040aa;
+    outline-width: 2px;
+    overflow: hidden;
+}
+
+.top-navigation a {
+    float: left;
+    text-align: center;
+    padding: 8px 8px;
+    color: #008080;
+}
+
+.top-navigation #login {
+    float: right;
+}
+
+.top-navigation a:hover {
+    background-color: #4080bfaa;
+}
+
+.top-navigation a.active {
+    background-color: #bfbf40aa;
+}
+
+.top-navigation a.active:hover {
+    background-color: #40bf40aa;
 }
