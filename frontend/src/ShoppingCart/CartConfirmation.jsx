@@ -57,6 +57,10 @@ export default class CartConfirmation extends Component {
                                     </tr>
                             )
                         }
+                        {
+                            "Total Purchase: " + 
+                            this.state.list.map(list => list.itemPrice).reduce((a, b) => a + b, 0)
+                        }
                         </tbody>
                     </table>
                     <div className="row">
