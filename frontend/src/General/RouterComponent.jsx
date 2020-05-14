@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Route, Switch, Link} from 'react-router-dom';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {Route, Switch} from 'react-router-dom';
 import ListShoppingCart from "../ShoppingCart/ListShoppingCart";
 import AddCart_Item from "../ShoppingCart/AddCart_Item";
 import UpdateCart_Item from "../ShoppingCart/UpdateCart_Item";
