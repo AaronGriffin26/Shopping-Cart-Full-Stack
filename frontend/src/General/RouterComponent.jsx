@@ -30,11 +30,14 @@ pending route.. will complete Thursday
                                 <Route path="/sign-up" component={SignUpComponent}/>
 */}
 
+                    <Route  path="/" exact component={LoginComponent}/>
+                    <Route path="/theCustomer" exact component={LoginComponent}/>
+                    <Route path="/theCustomer" exact component={ListShoppingCart}/>
 
-                    <Route path="/" exact component={ListShoppingCart}/>
-                    <Route path="/cartItems" exact component={ListShoppingCart}/>
-                    <Route path="/cartItems/:shoppingCartId" component={AddCart_Item}/>
-                    <Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>
+                    {/*<Route path="/" exact component={ListShoppingCart}/>*/}
+                    {/*<Route path="/cartItems" exact component={ListShoppingCart}/>*/}
+                    {/*<Route path="/cartItems/:shoppingCartId" component={AddCart_Item}/>*/}
+                    {/*<Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>*/}
 
 
                 </Switch>

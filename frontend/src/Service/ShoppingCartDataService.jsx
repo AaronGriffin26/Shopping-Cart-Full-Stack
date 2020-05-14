@@ -13,8 +13,13 @@ class ShoppingCartDataService{
         return axios.delete(`http://localhost:8080/cart/delete/${itemId}`)
     }
 
-    createCartItem(theCartItems){
+    createCartItem(theCartItems){      //post method for creating/adding cart items
         return axios.post('http://localhost:8080/cart/post', theCartItems)
+    }
+
+    createUser(theCustomer){
+        return axios.post(`http://localhost:8080/customerClass/post`,theCustomer)
+
     }
 }
 export default new ShoppingCartDataService();
