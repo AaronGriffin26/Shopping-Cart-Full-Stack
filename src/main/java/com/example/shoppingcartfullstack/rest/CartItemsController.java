@@ -2,16 +2,19 @@ package com.example.shoppingcartfullstack.rest;
 
 import com.example.shoppingcartfullstack.entity.CartItems;
 import com.example.shoppingcartfullstack.service.CartItemsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@CrossOrigin(origins= {"http://localhost:3000"})
 @RestController
 @RequestMapping("/api")
 public class CartItemsController{
 
-    private CartItemsService cartItemsService;
-
+    private final CartItemsService cartItemsService;
+    @Autowired
     public CartItemsController(CartItemsService theCartItemsService){
         cartItemsService = theCartItemsService;
     }
