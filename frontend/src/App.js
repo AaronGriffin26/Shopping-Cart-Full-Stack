@@ -1,7 +1,8 @@
 import React from 'react';
 import './bootstrap.css';
-import LoginComponent from "./Login/LoginComponent";
+//import LoginComponent from "./Login/LoginComponent";
 import SignUpComponent from "./Login/SignUpComponent";
+import RouterComponent from "./General/RouterComponent";
 
 //import ListShoppingCart from "./ShoppingCart/ListShoppingCart";
 
