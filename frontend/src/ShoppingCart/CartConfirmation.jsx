@@ -43,6 +43,7 @@ export default class CartConfirmation extends Component {
                             <th>Item Id:</th>
                             <th>Quantity:</th>
                             <th>Item Price:</th>
+                            <th>Subtotal:</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,15 +55,16 @@ export default class CartConfirmation extends Component {
                                         <td>{list.itemId}</td>
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
+                                        <td>{list.itemQuantity * list.itemPrice}</td>
                                     </tr>
                             )
                         }
-                        {
-                            "Total Purchase: " + 
-                            this.state.list.map(list => list.itemPrice).reduce((a, b) => a + b, 0)
-                        }
                         </tbody>
                     </table>
+                    <div style={{textAlign: "right"}}>
+                        Total: <b style={{"font-size": "18pt"}}>
+                        {this.state.list.map(list => list.itemQuantity * list.itemPrice).reduce((a, b) => a + b, 0)}</b>
+                    </div>
                     <div className="row">
                         <br/>
                         <button className="btn btn-success" onClick={this.purchaseClicked}>Purchase</button>
