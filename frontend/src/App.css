@@ -54,7 +54,7 @@ a {
     color: #008080;
 }
 
-.top-navigation a#login, a#sign-up {
+.top-navigation #login {
     float: right;
 }
 
