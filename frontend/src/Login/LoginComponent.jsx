@@ -5,7 +5,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: '',//this.props.match.params.userName,  //This is in connection to the routerComponent "/theCustomer
+            userName: '',
             password: '',
         }
         this.handleChange = this.handleChange.bind(this)
