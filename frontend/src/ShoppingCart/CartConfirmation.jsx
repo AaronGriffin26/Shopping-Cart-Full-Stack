@@ -10,6 +10,7 @@ export default class CartConfirmation extends Component {
             message: null,
         }
         this.refreshShoppingCart = this.refreshShoppingCart.bind(this)
+        this.goBackToCart = this.goBackToCart.bind(this)
         this.purchaseClicked = this.purchaseClicked.bind(this)
     }
 
@@ -22,12 +23,18 @@ export default class CartConfirmation extends Component {
             .then(
                 response => {
                     console.log(response);
-                    this.setState({list: response})
+                    this.setState({list: response.data})
                 }
             )
     }
 
-    purchaseClicked() {
+    goBackToCart(e) {
+        e.preventDefault()
+        this.props.history.goBack();
+    }
+
+    purchaseClicked(e) {
+        e.preventDefault()
         ShoppingCartDataService.purchaseShoppingCart()     //pending rest http links reason for underline error... will change once completed
             .then(() => this.props.history.push('/finish'));
     }
@@ -40,19 +47,19 @@ export default class CartConfirmation extends Component {
                     <table className="table">
                         <thead>
                         <tr style={{textAlign: "center", color: "pink"}}>
-                            <th>Item Id:</th>
-                            <th>Quantity:</th>
-                            <th>Item Price:</th>
-                            <th>Subtotal:</th>
+                            <th>Item Id</th>
+                            <th>Quantity</th>
+                            <th>Item Price</th>
+                            <th>Subtotal</th>
                         </tr>
                         </thead>
                         <tbody>
                         {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
                                 list =>
-                                    <tr style={{textAlign: "center"}} key={list.itemId}>
+                                    <tr style={{textAlign: "center"}} key={list.itemID}>
 
-                                        <td>{list.itemId}</td>
+                                        <td>{list.itemID}</td>
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
                                         <td>{list.itemQuantity * list.itemPrice}</td>
@@ -67,6 +74,7 @@ export default class CartConfirmation extends Component {
                     </div>
                     <div className="row">
                         <br/>
+                        <button className="btn btn-success" onClick={this.goBackToCart}>Modify</button>
                         <button className="btn btn-success" onClick={this.purchaseClicked}>Purchase</button>
                     </div>
                 </div>
