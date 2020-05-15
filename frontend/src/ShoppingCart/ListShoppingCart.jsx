@@ -43,7 +43,7 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService"
 
     addItemClicked(){
           console.log('Add Item Clicked')
-          this.props.history.push('/list/-1')
+          this.props.history.push('/cartItems')
      }
      updateItemClicked(itemId){
           console.log('Update Item Clicked')

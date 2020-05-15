@@ -22,7 +22,7 @@ class AddCart_Item extends Component {
     }
 
     handleSubmit() {
-        let list = {
+        let theCartItems = {
             shoppingCartId: this.state.shoppingCartId,
             itemId: this.state.itemId,
             itemQuantity: this.state.itemQuantity,
@@ -30,7 +30,7 @@ class AddCart_Item extends Component {
 
         }
 
-        ShoppingCartDataService.retrieveAllCartItems()
+        ShoppingCartDataService.createCartItem(theCartItems)
             .then(this.props.history.push(`/cartItems`))    //create cart items- method in ShoppingDataService
     }
 
