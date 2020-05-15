@@ -6,14 +6,15 @@ class UpdateCart_Item extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            itemId: this.props.match.params.itemId,
+            itemID: this.props.match.params.itemId,
             shoppingCartId: '',
             itemQuantity: '',
             itemPrice: ''
         }
-        ShoppingCartDataService.getCartItem(this.state.itemId).then(
+        ShoppingCartDataService.getCartItem(this.state.itemID).then(
             response => this.setState({
                 shoppingCartId: response.data.shoppingCartId,
+                itemID: response.data.itemID,
                 itemQuantity: response.data.itemQuantity,
                 itemPrice: response.data.itemPrice
             })
@@ -24,7 +25,7 @@ class UpdateCart_Item extends React.Component {
     onSubmit(values) {
         let theCartItems = {
             shoppingCartId: values.shoppingCartId,
-            itemId: values.itemId,
+            itemID: values.itemID,
             itemQuantity: values.itemQuantity,
             itemPrice: values.itemPrice,
         }
@@ -34,7 +35,7 @@ class UpdateCart_Item extends React.Component {
     }
 
     render() {
-        let {shoppingCartId, itemId, itemQuantity, itemPrice} = this.state
+        let {shoppingCartId, itemID, itemQuantity, itemPrice} = this.state
         return (
             <div>
                 <div className="jumbotron" style={{backgroundColor: "orange"}}>
@@ -42,7 +43,7 @@ class UpdateCart_Item extends React.Component {
                 </div>
                 <div className="container">
                     <Formik
-                        initialValues={{shoppingCartId, itemId, itemQuantity, itemPrice}}
+                        initialValues={{shoppingCartId, itemID, itemQuantity, itemPrice}}
                         onSubmit={this.onSubmit}
                         enableReinitialize={true}
                     >
@@ -54,8 +55,8 @@ class UpdateCart_Item extends React.Component {
                                         <Field className="form-control" type="text" name="shoppingCartId" disabled/>
                                     </fieldset>
                                     <fieldset>
-                                        <label>Item Id</label>
-                                        <Field className="form-control" type="text" name="itemId" disabled/>
+                                        <label>Item ID</label>
+                                        <Field className="form-control" type="text" name="itemID" disabled/>
                                     </fieldset>
                                     <fieldset>
                                         <label>Quantity</label>
