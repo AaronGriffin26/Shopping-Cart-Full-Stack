@@ -1,31 +1,31 @@
 import React, {Component} from 'react'
+import {Route, Switch} from 'react-router-dom';
 import ListShoppingCart from "../ShoppingCart/ListShoppingCart";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AddCart_Item from "../ShoppingCart/AddCart_Item";
 import UpdateCart_Item from "../ShoppingCart/UpdateCart_Item";
-
-
-
+import WelcomeComponent from "./WelcomeComponent";
+import LoginComponent from "../Login/LoginComponent";
+import SignUpComponent from "../Login/SignUpComponent";
+import CartConfirmation from "../ShoppingCart/CartConfirmation";
+import CartFinish from "../ShoppingCart/CartFinish";
 
 
 export default class RouterComponent extends Component {
-    render(){
+    render() {
         return (
-            <Router>
-                <>
-                    <h1 style={{textAlign:"center"}}>Welcome To Your Shopping Cart</h1>
-                    <Switch>
-                    <Route path = "/" exact component = {ListShoppingCart} />
-                    <Route path = "/cartItems" exact component = {ListShoppingCart} />
-                    <Route path = "/cartItems/:shoppingCartId" component = {AddCart_Item} />
-                    <Route path = "/cartUpdate/:shoppingCartId" component = {UpdateCart_Item} />
-
-                    </Switch>
-                    </>
-            </Router>
-        )
+            <div>
+                <Switch>
+                    <Route exact path="/"><WelcomeComponent name="Customer"/></Route>
+                    <Route path="/sign-in" component={LoginComponent}/>
+                    <Route path="/sign-up" component={SignUpComponent}/>
+                    <Route path="/cartItems/:userName" exact component={ListShoppingCart}/>
+                    <Route path="/addItem/:shoppingCartId" component={AddCart_Item}/>
+                    <Route path="/cartUpdate/:itemId" component={UpdateCart_Item}/>
+                    <Route path="/confirm/:shoppingCartId" exact component={CartConfirmation}/>
+                    <Route path="/finish" exact component={CartFinish}/>
+                </Switch>
+            </div>
+        );
     }
-
-
-
 }
+

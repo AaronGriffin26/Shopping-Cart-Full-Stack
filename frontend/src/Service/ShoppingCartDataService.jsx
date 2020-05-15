@@ -1,20 +1,41 @@
 import axios from 'axios'
 
 
-class ShoppingCartDataService{
+class ShoppingCartDataService {
 
 
-    retrieveAllCartItems(){
-        return axios.get('http://localhost:8080/cart/listCarts');
-
+    retrieveAllCartItems() {
+        return axios.get('http://localhost:8080/api/cart/listCarts');
     }
 
-    deleteCartItems(itemId){
-        return axios.delete(`http://localhost:8080/cart/delete/${itemId}`)
+    deleteCartItems(itemId) {
+        return axios.delete(`http://localhost:8080/api/cart/delete/${itemId}`)
     }
 
-    createCartItem(theCartItems){
-        return axios.post('http://localhost:8080/cart/post', theCartItems)
+    createCartItem(theCartItems) {      //post method for creating/adding cart items
+        return axios.post('http://localhost:8080/api/cart/post', theCartItems)
+    }
+
+    getCartItem(cartId) {
+        return axios.get(`http://localhost:8080/api/cart/get/${cartId}`)
+    }
+
+    updateCartItem(theCartItems) {
+        return axios.put('http://localhost:8080/api/cart/put', theCartItems)
+    }
+
+    getUser(userName) {
+        return axios.get(`http://localhost:8080/api/customerClass/get/${userName}`)
+    }
+
+    createUser(theCustomer) {
+        return axios.post(`http://localhost:8080/api/customerClass/post`, theCustomer)
+    }
+
+    purchaseShoppingCart() {
+        // TODO: Implement purchasing displayed cart
+        return axios.get('http://localhost:8080/api/cart/listCarts');
     }
 }
+
 export default new ShoppingCartDataService();

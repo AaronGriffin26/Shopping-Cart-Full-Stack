@@ -5,11 +5,10 @@ class AddCart_Item extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           shoppingCartId: this.props.match.params.shoppingCartId,
+            shoppingCartId: this.props.match.params.shoppingCartId,
             itemId: '',
             itemQuantity: '',
-            itemPrice: '',
-
+            itemPrice: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -22,20 +21,19 @@ class AddCart_Item extends Component {
     }
 
     handleSubmit() {
-        let list = {
+        let theCartItems = {
             shoppingCartId: this.state.shoppingCartId,
             itemId: this.state.itemId,
             itemQuantity: this.state.itemQuantity,
-            itemPrice: this.state.itemPrice,
-
+            itemPrice: this.state.itemPrice
         }
 
-        ShoppingCartDataService.retrieveAllCartItems()
-            .then(this.props.history.push(`/cartItems`))    //create cart items- method in ShoppingDataService
+        ShoppingCartDataService.createCartItem(theCartItems)
+            .then(this.props.history.push(`/cartItems/${this.state.shoppingCartId}`))    //I think this should be push to another route
     }
 
     render() {
-        return(
+        return (
             <div>
                 <div>
                     <h3 style={{textAlign: "center"}}>Add Cart Item</h3>
@@ -47,18 +45,16 @@ class AddCart_Item extends Component {
                             <input className="form-control" type="text" value={this.state.shoppingCartId} disabled/>
                         </div>
                         <div>
-                            <lable>Item ID:</lable>
-                            <input className="form-control" type="text" name="itemId" onChange={this.handleChange} disabled/>
+                            <label>Quantity:</label>
+                            <input className="form-control" type="text" name="itemQuantity"
+                                   onChange={this.handleChange}/>
                         </div>
                         <div>
-                            <lable>Quantity:</lable>
-                            <input className="form-control" type="text" name="itemQuantity" onChange={this.handleChange}/>
-                        </div>
-                        <div>
-                            <lable>Item Price:</lable>
+                            <label>Item Price:</label>
                             <input className="form-control" type="text" name="itemPrice" onChange={this.handleChange}/>
-                        </div> <br/><br/>
-                        <button className="btn btn-success" type="submit">Submit</button><br/><br/>
+                        </div>
+                        <br/><br/>
+                        <button className="btn btn-success" type="submit">Submit</button>
                     </form>
                 </div>
             </div>
