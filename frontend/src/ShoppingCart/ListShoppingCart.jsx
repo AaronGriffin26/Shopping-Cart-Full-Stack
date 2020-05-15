@@ -44,7 +44,7 @@ export default class ListShoppingCart extends Component {
     addItemClicked(shoppingCartId) {
         console.log('Add Item Clicked')
         console.log(shoppingCartId)
-        this.props.history.push(`/cartItems/${shoppingCartId}`)
+        this.props.history.push(`/addItem/${shoppingCartId}`)
     }
 
     updateItemClicked(itemId) {
@@ -94,7 +94,9 @@ export default class ListShoppingCart extends Component {
                     </table>
                     <div className="row">
                         <br/>
-                        <button className="btn btn-success" onClick={this.addItemClicked}>Add Item</button>
+                        <button className="btn btn-success"
+                                onClick={() => this.addItemClicked(this.state.list[0].shoppingCartId)}>Add Item
+                        </button>
                     </div>
                 </div>
             </div>
