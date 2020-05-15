@@ -25,13 +25,13 @@ export default class Login extends Component {
         console.log(userName)
         console.log(password)
 
-        let compare = ShoppingCartDataService.getUser(userName).then(response => response.data);
-        console.log(compare)
-        console.log(compare.password)
-        if (compare.password === password)
-            this.props.history.push(`/cartItems/${userName}`)
-        else
-            this.props.history.push(`/cartItems/Aaron`)
+        ShoppingCartDataService.getUser(userName).then(response => {
+            let compare = response.data;
+            if (compare.password === password)
+                this.props.history.push(`/cartItems/${userName}`)
+            else
+                console.log("Incorrect password")
+        });
     }
 
     render() {

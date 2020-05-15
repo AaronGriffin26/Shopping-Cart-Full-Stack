@@ -12,7 +12,11 @@ class UpdateCart_Item extends React.Component {
             itemPrice: ''
         }
         ShoppingCartDataService.getCartItem(this.state.itemId).then(
-            response => this.setState({shoppingCartId: response.data.shoppingCartId})
+            response => this.setState({
+                shoppingCartId: response.data.shoppingCartId,
+                itemQuantity: response.data.itemQuantity,
+                itemPrice: response.data.itemPrice
+            })
         )
         this.onSubmit = this.onSubmit.bind(this)
     }

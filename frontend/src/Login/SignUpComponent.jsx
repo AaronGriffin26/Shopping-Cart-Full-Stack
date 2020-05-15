@@ -27,10 +27,18 @@ export default class SignUpComponent extends Component {
             password: this.state.password
         }
 
-        const compare = ShoppingCartDataService.getUser(theCustomer.userName);
-        if (compare.password === null)
-            ShoppingCartDataService.createUser(theCustomer)
-                .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
+        ShoppingCartDataService.getUser(theCustomer.userName).then(response => {
+            let compare = response.data;
+            if (compare.password === null)
+                ShoppingCartDataService.createUser(theCustomer)
+                    .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
+            else
+                console.log("Username already exists!")
+        }).catch(error => {
+            if (error.response.status === 500)
+                ShoppingCartDataService.createUser(theCustomer)
+                    .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
+        });
     }
 
 
