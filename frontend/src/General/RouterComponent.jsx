@@ -16,24 +16,10 @@ export default class RouterComponent extends Component {
             <div>
                 <Switch>
                     <Route exact path="/"><WelcomeComponent name="Customer"/></Route>
-{/*
-pending route.. will complete Thursday
-                                <Route exact path='/' component={LoginComponent}/>
-                                <Route path="/sign-in" component={LoginComponent}/>
-                                <Route path="/sign-up" component={SignUpComponent}/>
-*/}
-
-
-                    {/*<Route path="/" exact component={ListShoppingCart}/>*/}
-                    {/*<Route path="/cartItems" exact component={ListShoppingCart}/>*/}
-                    {/*<Route path="/cartItems/:shoppingCartId" component={AddCart_Item}/>*/}
-                    {/*<Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>*/}
-
-
                     <Route path="/sign-in" component={LoginComponent}/>
                     <Route path="/sign-up" component={SignUpComponent}/>
-                    <Route path="/cartItems" exact component={ListShoppingCart}/>
-                    <Route path="/cartItems/:shoppingCartId" component={AddCart_Item}/>
+                    <Route path="/cartItems/:userName" exact component={ListShoppingCart}/>
+                    <Route path="/addItem/:shoppingCartId" component={AddCart_Item}/>
                     <Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>
                     <Route path="/confirm/:shoppingCartId" exact component={CartConfirmation}/>
                     <Route path="/finish" exact component={CartFinish}/>

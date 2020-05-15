@@ -22,7 +22,7 @@ export default class CartConfirmation extends Component {
             .then(
                 response => {
                     console.log(response);
-                    this.setState({list: response.data})
+                    this.setState({list: response})
                 }
             )
     }
