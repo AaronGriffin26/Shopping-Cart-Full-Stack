@@ -6,6 +6,8 @@ import UpdateCart_Item from "../ShoppingCart/UpdateCart_Item";
 import WelcomeComponent from "./WelcomeComponent";
 import LoginComponent from "../Login/LoginComponent";
 import SignUpComponent from "../Login/SignUpComponent";
+import CartConfirmation from "../ShoppingCart/CartConfirmation";
+import CartFinish from "../ShoppingCart/CartFinish";
 
 
 export default class RouterComponent extends Component {
@@ -33,6 +35,8 @@ pending route.. will complete Thursday
                     <Route path="/cartItems" exact component={ListShoppingCart}/>
                     <Route path="/cartItems/:shoppingCartId" component={AddCart_Item}/>
                     <Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>
+                    <Route path="/confirm/:shoppingCartId" exact component={CartConfirmation}/>
+                    <Route path="/finish" exact component={CartFinish}/>
                 </Switch>
             </div>
         );
