@@ -24,6 +24,10 @@ class ShoppingCartDataService {
         return axios.post(`http://localhost:8080/api/customerClass/post`, theCustomer)
     }
 
+    getCartItem(cartId) {
+        return axios.get(`http://localhost:8080/api/cart/get/${cartId}`)
+    }
+
     updateCartItem(theCartItems) {
         return axios.put('http://localhost:8080/api/cart/put', theCartItems)
     }

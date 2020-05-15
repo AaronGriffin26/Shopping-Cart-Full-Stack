@@ -20,7 +20,7 @@ export default class RouterComponent extends Component {
                     <Route path="/sign-up" component={SignUpComponent}/>
                     <Route path="/cartItems/:userName" exact component={ListShoppingCart}/>
                     <Route path="/addItem/:shoppingCartId" component={AddCart_Item}/>
-                    <Route path="/cartUpdate/:shoppingCartId" component={UpdateCart_Item}/>
+                    <Route path="/cartUpdate/:itemId" component={UpdateCart_Item}/>
                     <Route path="/confirm/:shoppingCartId" exact component={CartConfirmation}/>
                     <Route path="/finish" exact component={CartFinish}/>
                 </Switch>

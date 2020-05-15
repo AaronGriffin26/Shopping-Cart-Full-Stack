@@ -29,12 +29,12 @@ export default class ListShoppingCart extends Component {
             )
     }
 
-    deleteItemClicked(itemId) {
+    deleteItemClicked(itemID) {
         console.log('Delete Item Clicked')
-        ShoppingCartDataService.deleteCartItems(itemId)    // method call from ShoppingCartDataServices-- call to the backend
+        ShoppingCartDataService.deleteCartItems(itemID)    // method call from ShoppingCartDataServices-- call to the backend
             .then(
                 response => {
-                    this.setState({message: `Deleted Item ID: ${itemId} `})
+                    this.setState({message: `Deleted Item ID: ${itemID} `})
                     alert(this.state.message)
                     this.refreshShoppingCart();
                 }
@@ -47,9 +47,9 @@ export default class ListShoppingCart extends Component {
         this.props.history.push(`/addItem/${shoppingCartId}`)
     }
 
-    updateItemClicked(itemId) {
+    updateItemClicked(itemID) {
         console.log('Update Item Clicked')
-        this.props.history.push(`/cartUpdate/${itemId}`)
+        this.props.history.push(`/cartUpdate/${itemID}`)
     }
 
     goToConfirmation(shoppingCartId) {
@@ -75,19 +75,20 @@ export default class ListShoppingCart extends Component {
                         {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
                                 list =>
-                                    <tr style={{textAlign: "center"}} key={list.shoppingCartId}>
-                                        <td>{list.itemId}</td>
+                                    <tr style={{textAlign: "center"}} key={list.itemID}>
+                                        <td>{list.itemID}</td>
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
+                                        {console.log(list)}
 
                                         <td>
                                             <button className="btn btn-warning"
-                                                    onClick={() => this.deleteItemClicked(list.itemId, list.itemQuantity, list.itemPrice)}>Delete
+                                                    onClick={() => this.deleteItemClicked(list.itemID)}>Delete
                                             </button>
                                         </td>
                                         <td>
                                             <button className="btn btn-success"
-                                                    onClick={() => this.updateItemClicked(list.itemId)}>Update
+                                                    onClick={() => this.updateItemClicked(list.itemID)}>Update
                                             </button>
                                         </td>
                                     </tr>
