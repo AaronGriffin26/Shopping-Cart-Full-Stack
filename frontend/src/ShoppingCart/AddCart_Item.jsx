@@ -8,8 +8,7 @@ class AddCart_Item extends Component {
             shoppingCartId: this.props.match.params.shoppingCartId,
             itemId: '',
             itemQuantity: '',
-            itemPrice: '',
-
+            itemPrice: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -26,12 +25,11 @@ class AddCart_Item extends Component {
             shoppingCartId: this.state.shoppingCartId,
             itemId: this.state.itemId,
             itemQuantity: this.state.itemQuantity,
-            itemPrice: this.state.itemPrice,
-
+            itemPrice: this.state.itemPrice
         }
 
         ShoppingCartDataService.createCartItem(theCartItems)
-            .then(this.props.history.push(`/cartItems`))    //I think this should be push to another route
+            .then(this.props.history.push(`/cartItems/${this.state.shoppingCartId}`))    //I think this should be push to another route
     }
 
     render() {
@@ -47,10 +45,6 @@ class AddCart_Item extends Component {
                             <input className="form-control" type="text" value={this.state.shoppingCartId} disabled/>
                         </div>
                         <div>
-                            <label>Item ID:</label>
-                            <input className="form-control" type="text" name="itemId" onChange={this.handleChange}/>
-                        </div>
-                        <div>
                             <label>Quantity:</label>
                             <input className="form-control" type="text" name="itemQuantity"
                                    onChange={this.handleChange}/>
@@ -61,7 +55,6 @@ class AddCart_Item extends Component {
                         </div>
                         <br/><br/>
                         <button className="btn btn-success" type="submit">Submit</button>
-                        <br/><br/>
                     </form>
                 </div>
             </div>

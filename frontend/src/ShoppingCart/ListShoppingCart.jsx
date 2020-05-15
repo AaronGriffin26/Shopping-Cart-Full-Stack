@@ -52,6 +52,10 @@ export default class ListShoppingCart extends Component {
         this.props.history.push(`/cartUpdate/${itemId}`)
     }
 
+    goToConfirmation(shoppingCartId) {
+        this.props.history.push(`/confirm/${shoppingCartId}`)
+    }
+
     render() {
         return (
             <div className="container">
@@ -72,7 +76,6 @@ export default class ListShoppingCart extends Component {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
                                 list =>
                                     <tr style={{textAlign: "center"}} key={list.shoppingCartId}>
-
                                         <td>{list.itemId}</td>
                                         <td>{list.itemQuantity}</td>
                                         <td>{list.itemPrice}</td>
@@ -96,6 +99,9 @@ export default class ListShoppingCart extends Component {
                         <br/>
                         <button className="btn btn-success"
                                 onClick={() => this.addItemClicked(this.state.list[0].shoppingCartId)}>Add Item
+                        </button>
+                        <button className="btn btn-success"
+                                onClick={() => this.goToConfirmation(this.state.list[0].shoppingCartId)}>Checkout
                         </button>
                     </div>
                 </div>

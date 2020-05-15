@@ -8,17 +8,14 @@ export default class Login extends Component {
             userName: '',//this.props.match.params.userName,  //This is in connection to the routerComponent "/theCustomer
             password: '',
         }
-        this.handleUserNameChange = this.handleUserNameChange.bind(this)
-        this.handlePasswordChange = this.handlePasswordChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleUserNameChange(e) {
-        this.setState({userName: e.target.value})
-    }
-
-    handlePasswordChange(e) {
-        this.setState({password: e.target.value})
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     handleSubmit(e) {
@@ -46,14 +43,15 @@ export default class Login extends Component {
                         <div className="form-group">
                             <label>UserName
                                 <input type="text" className="form-control" name="userName"
-                                       onChange={this.handleUserNameChange}/>
+                                       onChange={this.handleChange}/>
                             </label>
                         </div>
 
                         <div className="form-group">
                             <label>Password
                                 <input type="password" className="form-control" placeholder="Enter password"
-                                       onChange={this.handlePasswordChange}/>
+                                       name="password"
+                                       onChange={this.handleChange}/>
                             </label>
                         </div>
 

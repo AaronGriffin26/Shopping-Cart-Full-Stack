@@ -3,16 +3,21 @@ import ShoppingCartDataService from "../Service/ShoppingCartDataService";
 
 
 export default class SignUpComponent extends Component {
-
-
     constructor(props) {
         super(props)
         this.state = {
             userName: '',//this.props.match.params.userName,  //This is in connection to the routerComponent "/theCustomer
             password: ''                                      // I will remove the "//" once routing is corrected in routercompt
         }
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
 
+    }
+
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     handleSubmit(e) {
@@ -38,11 +43,13 @@ export default class SignUpComponent extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label>UserName</label>
-                            <input className="form-control" type="text" name="userName"/>
+                            <input className="form-control" type="text" name="userName"
+                                   onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password"/>
+                            <input type="password" className="form-control" placeholder="Enter password" name="password"
+                                   onChange={this.handleChange}/>
                         </div>
                         <button className="btn btn-primary btn-block">Submit</button>
                     </form>
