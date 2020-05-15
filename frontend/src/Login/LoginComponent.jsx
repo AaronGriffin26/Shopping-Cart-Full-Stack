@@ -24,7 +24,7 @@ export default class Login extends Component {
         }
 
         ShoppingCartDataService.createUser(theCustomer)
-            .then(() => this.props.history.push('/theCustomer'))
+            .then(() => this.props.history.push(`/cartItems/${theCustomer}`))
     }
 
 

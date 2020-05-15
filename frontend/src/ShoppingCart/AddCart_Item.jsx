@@ -44,7 +44,7 @@ class AddCart_Item extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label>Shopping Cart Id:</label>
-                            <input className="form-control" type="text" value={this.state.shoppingCartId} disabled/>
+                            <input className="form-control" type="text" value={this.state.shoppingCartId}/>
                         </div>
                         <div>
                             <lable>Item ID:</lable>
