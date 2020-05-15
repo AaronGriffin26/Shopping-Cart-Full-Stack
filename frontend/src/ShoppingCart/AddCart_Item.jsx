@@ -31,7 +31,7 @@ class AddCart_Item extends Component {
         }
 
         ShoppingCartDataService.createCartItem(theCartItems)
-            .then(this.props.history.push(`/cartItems`))    //create cart items- method in ShoppingDataService
+            .then(this.props.history.push(`/cartItems`))    //I think this should be push to another route
     }
 
     render() {

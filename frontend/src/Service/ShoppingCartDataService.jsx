@@ -21,6 +21,9 @@ class ShoppingCartDataService {
         return axios.post(`http://localhost:8080/api/customerClass/post`, theCustomer)
 
     }
+    updateCartItem(theCartItems){
+        return axios.put('localhost:8080/api/cart/put', theCartItems)
+    }
     
     purchaseShoppingCart() {
         // TODO: Implement purchasing displayed cart

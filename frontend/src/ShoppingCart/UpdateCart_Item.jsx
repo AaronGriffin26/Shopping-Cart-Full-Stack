@@ -16,15 +16,15 @@ class UpdateCart_Item extends React.Component {
     }
 
     onSubmit(values) {
-        let list = {
+        let theCartItems = {
             shoppingCartId:values.shoppingCartId,
             itemId: values.itemId,
             itemQuantity: values.itemQuantity,
             itemPrice: values.itemPrice,
         }
 
-        ShoppingCartDataService.updateCart_Item(list)     //pending rest http links reason for underline error... will change once completed
-            .then(() => this.props.history.push('/list'))
+        ShoppingCartDataService.updateCartItem(theCartItems)     //pending rest http links reason for underline error... will change once completed
+            .then(() => this.props.history.push('/theCartItems')) //I think this should be push to another route
     }
 
     render() {
