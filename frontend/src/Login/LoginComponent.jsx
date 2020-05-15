@@ -22,15 +22,21 @@ export default class Login extends Component {
         e.preventDefault();
         let userName = this.state.userName;
         let password = this.state.password;
-        console.log(userName)
-        console.log(password)
+        if (userName === '') {
+            alert("Please enter a username");
+            return;
+        }
 
         ShoppingCartDataService.getUser(userName).then(response => {
             let compare = response.data;
             if (compare.password === password)
                 this.props.history.push(`/cartItems/${userName}`)
             else
-                console.log("Incorrect password")
+                alert("Incorrect password")
+        }).catch(error => {
+            console.log(error)
+            if (error.response.status === 500)
+                alert("Username not found")
         });
     }
 

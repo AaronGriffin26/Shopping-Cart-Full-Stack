@@ -33,7 +33,7 @@ export default class SignUpComponent extends Component {
                 ShoppingCartDataService.createUser(theCustomer)
                     .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
             else
-                console.log("Username already exists!")
+                alert("Username already exists!")
         }).catch(error => {
             if (error.response.status === 500)
                 ShoppingCartDataService.createUser(theCustomer)
