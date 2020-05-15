@@ -21,9 +21,6 @@ pending route.. will complete Thursday
                                 <Route path="/sign-up" component={SignUpComponent}/>
 */}
 
-                    <Route  path="/" exact component={LoginComponent}/>
-                    <Route path="/theCustomer" exact component={LoginComponent}/>
-                    <Route path="/theCustomer" exact component={ListShoppingCart}/>
 
                     {/*<Route path="/" exact component={ListShoppingCart}/>*/}
                     {/*<Route path="/cartItems" exact component={ListShoppingCart}/>*/}
