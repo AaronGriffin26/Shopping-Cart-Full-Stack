@@ -6,6 +6,7 @@ export default class ListShoppingCart extends Component {
     constructor(props) {
         super(props)             //To display items, we need to make them available to the component.
         this.state = {          // we add items to the state of the component and initialize in the constructor
+            shoppingCartId: this.props.match.params.shoppingCartId,
             list: [],
             message: null,
         }
@@ -31,7 +32,7 @@ export default class ListShoppingCart extends Component {
 
     deleteItemClicked(itemID) {
         console.log('Delete Item Clicked')
-        ShoppingCartDataService.deleteCartItems(itemID)    // method call from ShoppingCartDataServices-- call to the backend
+        ShoppingCartDataService.deleteCartItem(itemID)    // method call from ShoppingCartDataServices-- call to the backend
             .then(
                 response => {
                     this.setState({message: `Deleted Item ID: ${itemID} `})
@@ -41,10 +42,9 @@ export default class ListShoppingCart extends Component {
             )
     }
 
-    addItemClicked(shoppingCartId) {
+    addItemClicked() {
         console.log('Add Item Clicked')
-        console.log(shoppingCartId)
-        this.props.history.push(`/addItem/${shoppingCartId}`)
+        this.props.history.push(`/addItem/${this.state.shoppingCartId}`)
     }
 
     updateItemClicked(itemID) {
@@ -52,8 +52,8 @@ export default class ListShoppingCart extends Component {
         this.props.history.push(`/cartUpdate/${itemID}`)
     }
 
-    goToConfirmation(shoppingCartId) {
-        this.props.history.push(`/confirm/${shoppingCartId}`)
+    goToConfirmation() {
+        this.props.history.push(`/confirm/${this.state.shoppingCartId}`)
     }
 
     render() {
@@ -74,24 +74,28 @@ export default class ListShoppingCart extends Component {
                         <tbody>
                         {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
-                                list =>
-                                    <tr style={{textAlign: "center"}} key={list.itemID}>
-                                        <td>{list.itemID}</td>
-                                        <td>{list.itemQuantity}</td>
-                                        <td>{list.itemPrice}</td>
-                                        {console.log(list)}
+                                // eslint-disable-next-line array-callback-return
+                                list => {
+                                    if (list.shoppingCartId - this.state.shoppingCartId > -0.1 && list.shoppingCartId - this.state.shoppingCartId < 0.1) {
+                                        return <tr style={{textAlign: "center"}} key={list.itemID}>
+                                            <td>{list.itemID}</td>
+                                            <td>{list.itemQuantity}</td>
+                                            <td>{list.itemPrice}</td>
+                                            {console.log(list)}
 
-                                        <td>
-                                            <button className="btn btn-warning"
-                                                    onClick={() => this.deleteItemClicked(list.itemID)}>Delete
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-success"
-                                                    onClick={() => this.updateItemClicked(list.itemID)}>Update
-                                            </button>
-                                        </td>
-                                    </tr>
+                                            <td>
+                                                <button className="btn btn-warning"
+                                                        onClick={() => this.deleteItemClicked(list.itemID)}>Delete
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button className="btn btn-success"
+                                                        onClick={() => this.updateItemClicked(list.itemID)}>Update
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
                             )
                         }
                         </tbody>
@@ -99,10 +103,10 @@ export default class ListShoppingCart extends Component {
                     <div className="row">
                         <br/>
                         <button className="btn btn-success"
-                                onClick={() => this.addItemClicked(this.state.list[0].shoppingCartId)}>Add Item
+                                onClick={() => this.addItemClicked()}>Add Item
                         </button>
                         <button className="btn btn-success"
-                                onClick={() => this.goToConfirmation(this.state.list[0].shoppingCartId)}>Checkout
+                                onClick={() => this.goToConfirmation()}>Checkout
                         </button>
                     </div>
                 </div>

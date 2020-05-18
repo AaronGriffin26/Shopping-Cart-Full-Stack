@@ -8,20 +8,20 @@ class ShoppingCartDataService {
         return axios.get('http://localhost:8080/api/cart/listCarts');
     }
 
-    deleteCartItems(itemId) {
+    retrieveCartItem(itemId) {
+        return axios.get(`http://localhost:8080/api/cart/get/${itemId}`);
+    }
+
+    deleteCartItem(itemId) {
         return axios.delete(`http://localhost:8080/api/cart/delete/${itemId}`)
     }
 
-    createCartItem(theCartItems) {      //post method for creating/adding cart items
-        return axios.post('http://localhost:8080/api/cart/post', theCartItems)
+    createCartItem(theCartItem) {      //post method for creating/adding cart items
+        return axios.post('http://localhost:8080/api/cart/post', theCartItem)
     }
 
-    getCartItem(cartId) {
-        return axios.get(`http://localhost:8080/api/cart/get/${cartId}`)
-    }
-
-    updateCartItem(theCartItems) {
-        return axios.put('http://localhost:8080/api/cart/put', theCartItems)
+    updateCartItem(theCartItem) {
+        return axios.put('http://localhost:8080/api/cart/put', theCartItem)
     }
 
     getUser(userName) {
@@ -30,6 +30,14 @@ class ShoppingCartDataService {
 
     createUser(theCustomer) {
         return axios.post(`http://localhost:8080/api/customerClass/post`, theCustomer)
+    }
+
+    createShoppingCart(theCart) {
+        return axios.post(`http://localhost:8080/api/shoppingCart/post`, theCart)
+    }
+
+    retrieveAllShoppingCarts() {
+        return axios.get(`http://localhost:8080/api/shoppingCart/listCarts`);
     }
 
     purchaseShoppingCart() {
