@@ -11,7 +11,7 @@ class UpdateCart_Item extends React.Component {
             itemQuantity: '',
             itemPrice: ''
         }
-        ShoppingCartDataService.getCartItem(this.state.itemID).then(
+        ShoppingCartDataService.retrieveCartItem(this.state.itemID).then(
             response => this.setState({
                 shoppingCartId: response.data.shoppingCartId,
                 itemID: response.data.itemID,

@@ -31,13 +31,13 @@ export default class SignUpComponent extends Component {
             let compare = response.data;
             if (compare.password === null)
                 ShoppingCartDataService.createUser(theCustomer)
-                    .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
+                    .then(() => this.props.history.push(`/theCustomer/${theCustomer.userName}`))
             else
                 alert("Username already exists!")
         }).catch(error => {
             if (error.response.status === 500)
                 ShoppingCartDataService.createUser(theCustomer)
-                    .then(() => this.props.history.push(`/cartItems/${theCustomer.userName}`))
+                    .then(() => this.props.history.push(`/theCustomer/${theCustomer.userName}`))
         });
     }
 

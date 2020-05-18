@@ -1,4 +1,4 @@
-﻿import React, {Component} from 'react'
+import React, {Component} from 'react'
 import ShoppingCartDataService from "../Service/ShoppingCartDataService"
 
 
@@ -6,8 +6,9 @@ export default class CartConfirmation extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            shoppingCartId: this.props.match.params.shoppingCartId,
             list: [],
-            message: null,
+            message: null
         }
         this.refreshShoppingCart = this.refreshShoppingCart.bind(this)
         this.goBackToCart = this.goBackToCart.bind(this)
@@ -56,21 +57,30 @@ export default class CartConfirmation extends Component {
                         <tbody>
                         {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
-                                list =>
-                                    <tr style={{textAlign: "center"}} key={list.itemID}>
-
-                                        <td>{list.itemID}</td>
-                                        <td>{list.itemQuantity}</td>
-                                        <td>{list.itemPrice}</td>
-                                        <td>{list.itemQuantity * list.itemPrice}</td>
-                                    </tr>
+                                list => {
+                                    if (list.shoppingCartId - this.state.shoppingCartId > -0.1 && list.shoppingCartId - this.state.shoppingCartId < 0.1) {
+                                        return (
+                                            <tr style={{textAlign: "center"}} key={list.itemID}>
+                                                <td>{list.itemID}</td>
+                                                <td>{list.itemQuantity}</td>
+                                                <td>{list.itemPrice}</td>
+                                                <td>{list.itemQuantity * list.itemPrice}</td>
+                                            </tr>
+                                        )
+                                    }
+                                }
                             )
                         }
                         </tbody>
                     </table>
                     <div style={{textAlign: "right"}}>
                         Total: <b style={{"font-size": "18pt"}}>
-                        {this.state.list.map(list => list.itemQuantity * list.itemPrice).reduce((a, b) => a + b, 0)}</b>
+                        {this.state.list.map(list => {
+                            if (list.shoppingCartId - this.state.shoppingCartId > -0.1 && list.shoppingCartId - this.state.shoppingCartId < 0.1) {
+                                return list.itemQuantity * list.itemPrice;
+                            }
+                            return 0;
+                        }).reduce((a, b) => a + b, 0)}</b>
                     </div>
                     <div className="row">
                         <br/>

@@ -8,6 +8,7 @@ import LoginComponent from "../Login/LoginComponent";
 import SignUpComponent from "../Login/SignUpComponent";
 import CartConfirmation from "../ShoppingCart/CartConfirmation";
 import CartFinish from "../ShoppingCart/CartFinish";
+import CustomerComponent from "../Login/CustomerComponent";
 
 
 export default class RouterComponent extends Component {
@@ -18,7 +19,8 @@ export default class RouterComponent extends Component {
                     <Route exact path="/"><WelcomeComponent name="Customer"/></Route>
                     <Route path="/sign-in" component={LoginComponent}/>
                     <Route path="/sign-up" component={SignUpComponent}/>
-                    <Route path="/cartItems/:userName" exact component={ListShoppingCart}/>
+                    <Route path="/theCustomer/:userName" exact component={CustomerComponent}/>
+                    <Route path="/cartItems/:shoppingCartId" exact component={ListShoppingCart}/>
                     <Route path="/addItem/:shoppingCartId" component={AddCart_Item}/>
                     <Route path="/cartUpdate/:itemId" component={UpdateCart_Item}/>
                     <Route path="/confirm/:shoppingCartId" exact component={CartConfirmation}/>
