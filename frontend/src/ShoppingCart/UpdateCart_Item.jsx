@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Formik, Form, Field} from 'formik'
 import ShoppingCartDataService from "../Service/ShoppingCartDataService";
 
-class UpdateCart_Item extends React.Component {
+class UpdateCart_Item extends Component {
     constructor(props) {
         super(props)
         this.state = {

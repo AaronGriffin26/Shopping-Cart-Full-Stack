@@ -57,6 +57,7 @@ export default class CartConfirmation extends Component {
                         <tbody>
                         {
                             this.state.list.map(    //allow you to loop through a list of items and define how each item should be displayed
+                                // eslint-disable-next-line array-callback-return
                                 list => {
                                     if (list.shoppingCartId - this.state.shoppingCartId > -0.1 && list.shoppingCartId - this.state.shoppingCartId < 0.1) {
                                         return (
