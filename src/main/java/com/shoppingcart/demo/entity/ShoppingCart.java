@@ -22,7 +22,7 @@ public class ShoppingCart {
     @Column(name = "ItemPrice")
     private double ItemPrice;
 
-    public ShoppingCart(){
+    public ShoppingCart() {
 
     }
 
